@@ -41,10 +41,14 @@ export function Navbar() {
         <button
           type="button"
           onClick={() => handleNavClick("hero")}
-          className="theme-nav-link text-xl font-bold theme-text"
+          className="theme-nav-link flex items-center theme-text"
           aria-label="Scroll to top"
         >
-          {personalInfo.initials}
+          <img
+            src="/vm-logo.png"
+            alt="VM Logo"
+            className="h-10 w-10 object-contain rounded-full transition-transform duration-200 hover:scale-105"
+          />
         </button>
 
         <div className="hidden items-center gap-1 md:flex">
