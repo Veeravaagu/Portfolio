@@ -4,7 +4,7 @@ Production-ready personal portfolio built to present projects, experience, and t
 
 ## Live Demo
 
-[View Live Site](https://https://veeravaagu-murugan.vercel.app/)
+[View Live Site](https://veeravaagu-murugan.vercel.app/)
 
 ## Tech Stack
 
