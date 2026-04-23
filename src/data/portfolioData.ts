@@ -3,7 +3,10 @@ import { Github, Linkedin, Mail } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { IconType } from "react-icons";
 import {
+  SiAuth0,
+  SiC,
   SiChartdotjs,
+  SiCplusplus,
   SiDocker,
   SiDjango,
   SiExpress,
@@ -14,19 +17,25 @@ import {
   SiLangchain,
   SiLinux,
   SiMongodb,
-  SiMysql,
   SiNodedotjs,
   SiOpenai,
   SiPostgresql,
   SiPydantic,
+  SiPytest,
   SiPython,
   SiReact,
+  SiRender,
   SiRedis,
+  SiScikitlearn,
+  SiSocketdotio,
+  SiSqlite,
+  SiSupabase,
   SiTailwindcss,
   SiTypescript,
-  SiWebrtc,
+  SiJsonwebtokens,
+  SiVercel,
 } from "react-icons/si";
-import { AudioWaveform, Bot, Braces, CloudCog, Database, GraduationCap, ShieldCheck, TerminalSquare } from "lucide-react";
+import { Bot, CloudCog, ShieldCheck, TerminalSquare } from "lucide-react";
 
 export type NavItem = {
   label: string;
@@ -130,10 +139,10 @@ export const experienceItems: ExperienceItem[] = [
     location: "Buffalo, NY",
     active: true,
     bullets: [
-      "Architected CSE Pulse, a faculty activity monitoring system, as 5+ decoupled Python services enabling parallel development across a 4-engineer team.",
-      "Engineered a Gmail API ingestion pipeline processing 100–150+ activity records per run with fault-tolerant error handling and adapter-based mock and live modes.",
-      "Built a FastAPI backend with 5 production-ready endpoints at under 100ms response latency supporting ingestion triggers, activity retrieval, and system health monitoring.",
-      "Reduced manual tracking effort by 80–90% through automated ingestion and enrichment workflows supporting real-time dashboard integration.",
+      "Designed and built CSE Pulse as a distributed system of 5 decoupled services, replacing manual email tracking with a centralized, queryable activity platform for 60+ faculty.",
+      "Developed a Gmail ingestion pipeline processing 100-150 notifications per run into structured data, eliminating manual aggregation workflows.",
+      "Built a FastAPI backend with sub-100ms response latency, enabling real-time querying and reporting for department administrators.",
+      "Implemented a storage abstraction layer enabling seamless migration from JSON to PostgreSQL without impacting downstream services.",
     ],
   },
   {
@@ -142,10 +151,10 @@ export const experienceItems: ExperienceItem[] = [
     company: "EVU",
     location: "New York, NY",
     bullets: [
-      "Delivered 6 features for RealIDream across a React TypeScript frontend, Node.js APIs, and real-time job status updates via WebSockets for 1,000+ users.",
-      "Implemented OAuth 2.0 and JWT authentication including Google login, protected route middleware, and 80%+ Jest unit test coverage on the auth module.",
-      "Built AWS S3 file upload via pre-signed URLs, PostgreSQL schema migrations, and Playwright E2E tests covering login, upload, and result workflows.",
-      "Integrated WebRTC peer connections to stream live camera input to backend, rendering AI-processed frames to HTML canvas in near real-time.",
+      "Shipped 6 production features in a 5-engineer team, contributing to a consumer AI platform serving 1,000+ users from a greenfield codebase.",
+      "Implemented OAuth2 and JWT-based authentication securing APIs and WebSocket connections, with comprehensive test coverage.",
+      "Built real-time WebSocket pipelines delivering live AI job updates, eliminating polling delays for 10-40 second processing workflows.",
+      "Developed an interactive AR canvas in React enabling object-level manipulation, forming the core user interaction layer of the platform.",
     ],
   },
   {
@@ -190,6 +199,16 @@ export const projects: Project[] = [
     techStack: ["Python", "Django", "PostgreSQL", "React", "Vite"],
     primaryLinkLabel: "Live Demo",
     primaryLinkUrl: "https://third-party-vendor-risk-dashboard-1.onrender.com/",
+  },
+  {
+    id: "java-tcp-json-server",
+    title: "Java TCP JSON Server",
+    category: "Backend / Systems",
+    description:
+      "A concurrent TCP client-server system built in Java, implementing a custom JSON protocol with structured validation, error handling, and multithreaded request processing.",
+    techStack: ["Java", "Maven", "JUnit", "Sockets", "Concurrency"],
+    primaryLinkLabel: "View Code",
+    primaryLinkUrl: "https://github.com/veeravaagu/java-tcp-json-server-client",
   },
   {
     id: "weather-app",
@@ -246,57 +265,28 @@ export const skillCategories: SkillCategory[] = [
           "group-hover:border-blue-400/40 group-hover:bg-blue-400/10 group-hover:text-blue-100 group-hover:shadow-[0_0_22px_rgba(59,130,246,0.18)]",
       },
       {
-        name: "C++17",
-        icon: TerminalSquare,
+        name: "C",
+        icon: asSkillIcon(SiC),
+        accentClass:
+          "group-hover:border-stone-300/35 group-hover:bg-stone-300/10 group-hover:text-stone-100 group-hover:shadow-[0_0_20px_rgba(214,211,209,0.12)]",
+      },
+      {
+        name: "C++",
+        icon: asSkillIcon(SiCplusplus),
         accentClass:
           "group-hover:border-slate-300/35 group-hover:bg-slate-300/10 group-hover:text-slate-100 group-hover:shadow-[0_0_20px_rgba(148,163,184,0.12)]",
       },
       {
         name: "Java",
-        icon: GraduationCap,
+        icon: TerminalSquare,
         accentClass:
           "group-hover:border-orange-400/35 group-hover:bg-orange-400/10 group-hover:text-orange-100 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.16)]",
       },
       {
         name: "SQL",
-        icon: Database,
+        icon: asSkillIcon(SiPostgresql),
         accentClass:
           "group-hover:border-zinc-300/35 group-hover:bg-zinc-300/10 group-hover:text-zinc-100 group-hover:shadow-[0_0_18px_rgba(244,244,245,0.12)]",
-      },
-    ],
-  },
-  {
-    label: "AI & Agents",
-    items: [
-      {
-        name: "OpenAI API",
-        icon: asSkillIcon(SiOpenai),
-        accentClass:
-          "group-hover:border-emerald-300/35 group-hover:bg-emerald-300/10 group-hover:text-emerald-100 group-hover:shadow-[0_0_20px_rgba(52,211,153,0.16)]",
-      },
-      {
-        name: "LangChain",
-        icon: asSkillIcon(SiLangchain),
-        accentClass:
-          "group-hover:border-lime-300/35 group-hover:bg-lime-300/10 group-hover:text-lime-100 group-hover:shadow-[0_0_20px_rgba(163,230,53,0.16)]",
-      },
-      {
-        name: "Pydantic",
-        icon: asSkillIcon(SiPydantic),
-        accentClass:
-          "group-hover:border-violet-300/35 group-hover:bg-violet-300/10 group-hover:text-violet-100 group-hover:shadow-[0_0_20px_rgba(196,181,253,0.15)]",
-      },
-      {
-        name: "scikit-learn",
-        icon: Bot,
-        accentClass:
-          "group-hover:border-red-300/35 group-hover:bg-red-300/10 group-hover:text-red-100 group-hover:shadow-[0_0_20px_rgba(252,165,165,0.15)]",
-      },
-      {
-        name: "XGBoost",
-        icon: Bot,
-        accentClass:
-          "group-hover:border-orange-300/35 group-hover:bg-orange-300/10 group-hover:text-orange-100 group-hover:shadow-[0_0_20px_rgba(253,186,116,0.16)]",
       },
     ],
   },
@@ -322,22 +312,28 @@ export const skillCategories: SkillCategory[] = [
           "group-hover:border-lime-300/35 group-hover:bg-lime-300/10 group-hover:text-lime-100 group-hover:shadow-[0_0_20px_rgba(163,230,53,0.16)]",
       },
       {
-        name: "Express.js",
+        name: "Express",
         icon: asSkillIcon(SiExpress),
         accentClass:
           "group-hover:border-zinc-300/35 group-hover:bg-zinc-300/10 group-hover:text-zinc-100 group-hover:shadow-[0_0_18px_rgba(244,244,245,0.1)]",
       },
       {
-        name: "REST / WebSocket",
-        icon: asSkillIcon(SiWebrtc),
+        name: "WebSocket",
+        icon: asSkillIcon(SiSocketdotio),
         accentClass:
           "group-hover:border-sky-300/35 group-hover:bg-sky-300/10 group-hover:text-sky-100 group-hover:shadow-[0_0_20px_rgba(125,211,252,0.15)]",
       },
       {
-        name: "OAuth 2.0 / JWT",
-        icon: ShieldCheck,
+        name: "OAuth2",
+        icon: asSkillIcon(SiAuth0),
         accentClass:
           "group-hover:border-rose-300/35 group-hover:bg-rose-300/10 group-hover:text-rose-100 group-hover:shadow-[0_0_20px_rgba(253,164,175,0.16)]",
+      },
+      {
+        name: "JWT",
+        icon: asSkillIcon(SiJsonwebtokens),
+        accentClass:
+          "group-hover:border-pink-300/35 group-hover:bg-pink-300/10 group-hover:text-pink-100 group-hover:shadow-[0_0_20px_rgba(249,168,212,0.16)]",
       },
     ],
   },
@@ -351,6 +347,12 @@ export const skillCategories: SkillCategory[] = [
           "group-hover:border-cyan-300/40 group-hover:bg-cyan-300/10 group-hover:text-cyan-100 group-hover:shadow-[0_0_22px_rgba(103,232,249,0.18)]",
       },
       {
+        name: "TypeScript",
+        icon: asSkillIcon(SiTypescript),
+        accentClass:
+          "group-hover:border-blue-400/40 group-hover:bg-blue-400/10 group-hover:text-blue-100 group-hover:shadow-[0_0_22px_rgba(59,130,246,0.18)]",
+      },
+      {
         name: "Tailwind CSS",
         icon: asSkillIcon(SiTailwindcss),
         accentClass:
@@ -361,18 +363,6 @@ export const skillCategories: SkillCategory[] = [
         icon: asSkillIcon(SiChartdotjs),
         accentClass:
           "group-hover:border-fuchsia-300/35 group-hover:bg-fuchsia-300/10 group-hover:text-fuchsia-100 group-hover:shadow-[0_0_20px_rgba(240,171,252,0.16)]",
-      },
-      {
-        name: "Web Audio API",
-        icon: AudioWaveform,
-        accentClass:
-          "group-hover:border-purple-300/35 group-hover:bg-purple-300/10 group-hover:text-purple-100 group-hover:shadow-[0_0_20px_rgba(216,180,254,0.16)]",
-      },
-      {
-        name: "Playwright",
-        icon: ShieldCheck,
-        accentClass:
-          "group-hover:border-emerald-300/35 group-hover:bg-emerald-300/10 group-hover:text-emerald-100 group-hover:shadow-[0_0_20px_rgba(110,231,183,0.16)]",
       },
     ],
   },
@@ -392,34 +382,63 @@ export const skillCategories: SkillCategory[] = [
           "group-hover:border-green-400/35 group-hover:bg-green-400/10 group-hover:text-green-100 group-hover:shadow-[0_0_20px_rgba(74,222,128,0.16)]",
       },
       {
+        name: "SQLite",
+        icon: asSkillIcon(SiSqlite),
+        accentClass:
+          "group-hover:border-zinc-300/35 group-hover:bg-zinc-300/10 group-hover:text-zinc-100 group-hover:shadow-[0_0_20px_rgba(244,244,245,0.12)]",
+      },
+      {
         name: "Redis",
         icon: asSkillIcon(SiRedis),
         accentClass:
           "group-hover:border-rose-400/35 group-hover:bg-rose-400/10 group-hover:text-rose-100 group-hover:shadow-[0_0_20px_rgba(251,113,133,0.16)]",
       },
       {
-        name: "SQLite / Supabase",
-        icon: Braces,
+        name: "Supabase",
+        icon: asSkillIcon(SiSupabase),
         accentClass:
           "group-hover:border-zinc-300/35 group-hover:bg-zinc-300/10 group-hover:text-zinc-100 group-hover:shadow-[0_0_20px_rgba(244,244,245,0.12)]",
-      },
-      {
-        name: "MySQL",
-        icon: asSkillIcon(SiMysql),
-        accentClass:
-          "group-hover:border-cyan-300/35 group-hover:bg-cyan-300/10 group-hover:text-cyan-100 group-hover:shadow-[0_0_20px_rgba(103,232,249,0.16)]",
       },
     ],
   },
   {
-    label: "Infrastructure & Testing",
+    label: "AI & Tools",
     items: [
       {
-        name: "AWS S3 / IAM",
-        icon: CloudCog,
+        name: "OpenAI API",
+        icon: asSkillIcon(SiOpenai),
         accentClass:
-          "group-hover:border-orange-400/35 group-hover:bg-orange-400/10 group-hover:text-orange-100 group-hover:shadow-[0_0_20px_rgba(251,146,60,0.16)]",
+          "group-hover:border-emerald-300/35 group-hover:bg-emerald-300/10 group-hover:text-emerald-100 group-hover:shadow-[0_0_20px_rgba(52,211,153,0.16)]",
       },
+      {
+        name: "LangChain",
+        icon: asSkillIcon(SiLangchain),
+        accentClass:
+          "group-hover:border-lime-300/35 group-hover:bg-lime-300/10 group-hover:text-lime-100 group-hover:shadow-[0_0_20px_rgba(163,230,53,0.16)]",
+      },
+      {
+        name: "Pydantic",
+        icon: asSkillIcon(SiPydantic),
+        accentClass:
+          "group-hover:border-violet-300/35 group-hover:bg-violet-300/10 group-hover:text-violet-100 group-hover:shadow-[0_0_20px_rgba(196,181,253,0.15)]",
+      },
+      {
+        name: "scikit-learn",
+        icon: asSkillIcon(SiScikitlearn),
+        accentClass:
+          "group-hover:border-red-300/35 group-hover:bg-red-300/10 group-hover:text-red-100 group-hover:shadow-[0_0_20px_rgba(252,165,165,0.15)]",
+      },
+      {
+        name: "XGBoost",
+        icon: Bot,
+        accentClass:
+          "group-hover:border-orange-300/35 group-hover:bg-orange-300/10 group-hover:text-orange-100 group-hover:shadow-[0_0_20px_rgba(253,186,116,0.16)]",
+      },
+    ],
+  },
+  {
+    label: "Infrastructure",
+    items: [
       {
         name: "Docker",
         icon: asSkillIcon(SiDocker),
@@ -433,22 +452,57 @@ export const skillCategories: SkillCategory[] = [
           "group-hover:border-indigo-300/35 group-hover:bg-indigo-300/10 group-hover:text-indigo-100 group-hover:shadow-[0_0_20px_rgba(165,180,252,0.16)]",
       },
       {
-        name: "pytest / Jest",
-        icon: asSkillIcon(SiJest),
+        name: "AWS",
+        icon: CloudCog,
+        accentClass:
+          "group-hover:border-orange-400/35 group-hover:bg-orange-400/10 group-hover:text-orange-100 group-hover:shadow-[0_0_20px_rgba(251,146,60,0.16)]",
+      },
+      {
+        name: "Render",
+        icon: asSkillIcon(SiRender),
+        accentClass:
+          "group-hover:border-sky-300/35 group-hover:bg-sky-300/10 group-hover:text-sky-100 group-hover:shadow-[0_0_20px_rgba(125,211,252,0.15)]",
+      },
+      {
+        name: "Vercel",
+        icon: asSkillIcon(SiVercel),
+        accentClass:
+          "group-hover:border-zinc-300/35 group-hover:bg-zinc-300/10 group-hover:text-zinc-100 group-hover:shadow-[0_0_20px_rgba(244,244,245,0.12)]",
+      },
+      {
+        name: "Linux",
+        icon: asSkillIcon(SiLinux),
+        accentClass:
+          "group-hover:border-stone-300/35 group-hover:bg-stone-300/10 group-hover:text-stone-100 group-hover:shadow-[0_0_20px_rgba(214,211,209,0.12)]",
+      },
+    ],
+  },
+  {
+    label: "Testing",
+    items: [
+      {
+        name: "pytest",
+        icon: asSkillIcon(SiPytest),
         accentClass:
           "group-hover:border-emerald-300/35 group-hover:bg-emerald-300/10 group-hover:text-emerald-100 group-hover:shadow-[0_0_20px_rgba(110,231,183,0.16)]",
+      },
+      {
+        name: "Jest",
+        icon: asSkillIcon(SiJest),
+        accentClass:
+          "group-hover:border-amber-300/35 group-hover:bg-amber-300/10 group-hover:text-amber-100 group-hover:shadow-[0_0_20px_rgba(245,158,11,0.16)]",
+      },
+      {
+        name: "JUnit",
+        icon: ShieldCheck,
+        accentClass:
+          "group-hover:border-orange-300/35 group-hover:bg-orange-300/10 group-hover:text-orange-100 group-hover:shadow-[0_0_20px_rgba(253,186,116,0.16)]",
       },
       {
         name: "Playwright",
         icon: ShieldCheck,
         accentClass:
           "group-hover:border-green-300/35 group-hover:bg-green-300/10 group-hover:text-green-100 group-hover:shadow-[0_0_20px_rgba(134,239,172,0.16)]",
-      },
-      {
-        name: "Linux / CMake",
-        icon: asSkillIcon(SiLinux),
-        accentClass:
-          "group-hover:border-stone-300/35 group-hover:bg-stone-300/10 group-hover:text-stone-100 group-hover:shadow-[0_0_20px_rgba(214,211,209,0.12)]",
       },
     ],
   },
