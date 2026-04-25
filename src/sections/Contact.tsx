@@ -5,6 +5,7 @@ import { contactFormConfig, personalInfo } from "../data/portfolioData";
 import { SocialLinks } from "../components/SocialLinks";
 import { SectionHeader } from "../components/SectionHeader";
 import { cn } from "../lib/utils";
+import { TypeText, useInView } from "../lib/terminalEffects";
 
 type FormValues = {
   name: string;
@@ -27,6 +28,7 @@ function validateEmail(email: string) {
 }
 
 export function Contact() {
+  const [ref, inView] = useInView<HTMLElement>();
   const [formValues, setFormValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -119,9 +121,9 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="section-shell">
+    <section id="contact" ref={ref} className="section-shell">
       <div className="section-panel max-w-5xl">
-        <SectionHeader title="Contact Me" framed />
+        <SectionHeader index="05" title="Contact Me" framed />
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -130,12 +132,13 @@ export function Contact() {
           className="mx-auto max-w-3xl"
         >
           <p className="theme-muted mx-auto mb-8 max-w-2xl text-center text-base leading-8 sm:text-lg">
-            Have an opportunity, project, or collaboration in mind? Feel free to reach
-            out.
+            {inView ? (
+              <TypeText delay={400} speed={14} inView={inView}>
+                Have an opportunity, project, or collaboration in mind? Feel free to reach out.
+              </TypeText>
+            ) : null}
           </p>
-          <motion.div className="glass-card glass-card-black p-8 sm:p-10">
-            <div className="glass-card-overlay" />
-            <div className="glass-card-content">
+          <motion.div className="p-0">
             <form noValidate onSubmit={handleSubmit} className="space-y-5">
               <div className="grid gap-5 sm:grid-cols-2">
                 <label className="block">
@@ -148,7 +151,7 @@ export function Contact() {
                     placeholder="Your name"
                     aria-invalid={Boolean(errors.name)}
                     aria-describedby={errors.name ? "contact-name-error" : undefined}
-                    className="theme-input w-full rounded-xl border px-4 py-3 outline-none transition-all duration-300 ease-out"
+                    className="theme-input w-full rounded-md border px-4 py-3 font-mono outline-none transition-all duration-300 ease-out"
                   />
                   {errors.name ? (
                     <span id="contact-name-error" className="mt-2 block text-sm text-red-300">
@@ -167,7 +170,7 @@ export function Contact() {
                     placeholder="you@example.com"
                     aria-invalid={Boolean(errors.email)}
                     aria-describedby={errors.email ? "contact-email-error" : undefined}
-                    className="theme-input w-full rounded-xl border px-4 py-3 outline-none transition-all duration-300 ease-out"
+                    className="theme-input w-full rounded-md border px-4 py-3 font-mono outline-none transition-all duration-300 ease-out"
                   />
                   {errors.email ? (
                     <span id="contact-email-error" className="mt-2 block text-sm text-red-300">
@@ -187,7 +190,7 @@ export function Contact() {
                   placeholder="What would you like to talk about?"
                   aria-invalid={Boolean(errors.subject)}
                   aria-describedby={errors.subject ? "contact-subject-error" : undefined}
-                  className="theme-input w-full rounded-xl border px-4 py-3 outline-none transition-all duration-300 ease-out"
+                  className="theme-input w-full rounded-md border px-4 py-3 font-mono outline-none transition-all duration-300 ease-out"
                 />
                 {errors.subject ? (
                   <span id="contact-subject-error" className="mt-2 block text-sm text-red-300">
@@ -206,7 +209,7 @@ export function Contact() {
                   rows={6}
                   aria-invalid={Boolean(errors.message)}
                   aria-describedby={errors.message ? "contact-message-error" : undefined}
-                  className="theme-input w-full rounded-xl border px-4 py-3 outline-none transition-all duration-300 ease-out"
+                  className="theme-input w-full rounded-md border px-4 py-3 font-mono outline-none transition-all duration-300 ease-out"
                 />
                 {errors.message ? (
                   <span id="contact-message-error" className="mt-2 block text-sm text-red-300">
@@ -218,7 +221,7 @@ export function Contact() {
               {submitMessage ? (
                 <div
                   className={cn(
-                    "flex items-start gap-3 rounded-xl border px-4 py-3 text-sm",
+                    "flex items-start gap-3 rounded-md border px-4 py-3 text-sm",
                     submitState === "success"
                       ? "theme-feedback-success"
                       : "theme-feedback-error",
@@ -236,7 +239,7 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="theme-btn-primary theme-interactive inline-flex w-full items-center justify-center gap-3 rounded-full border px-6 py-4 text-base font-semibold disabled:cursor-not-allowed disabled:opacity-70"
+                className="theme-btn-primary theme-interactive inline-flex w-full items-center justify-center gap-3 rounded-md border px-6 py-4 font-mono text-base font-semibold uppercase tracking-[0.08em] disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {isSubmitting ? (
                   <>
@@ -251,7 +254,6 @@ export function Contact() {
                 )}
               </button>
             </form>
-            </div>
           </motion.div>
 
           <SocialLinks className="mt-6 justify-center" />

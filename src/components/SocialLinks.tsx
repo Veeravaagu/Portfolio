@@ -20,7 +20,7 @@ export function SocialLinks({ className }: SocialLinksProps) {
             target={isEmail ? undefined : "_blank"}
             rel={isEmail ? undefined : "noopener noreferrer"}
             className={cn(
-              "theme-btn-secondary theme-icon-button theme-text flex h-11 w-11 items-center justify-center rounded-full border hover:text-[rgb(var(--color-text))]",
+              "theme-btn-secondary theme-icon-button theme-text flex h-11 w-11 items-center justify-center rounded-md border hover:text-[rgb(var(--color-text))]",
             )}
           >
             <Icon className="theme-button-icon h-5 w-5" />

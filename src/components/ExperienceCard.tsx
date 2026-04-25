@@ -2,17 +2,33 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { cn } from "../lib/utils";
 import type { ExperienceItem } from "../data/portfolioData";
+import { useInView, useTypewriter } from "../lib/terminalEffects";
 
 type ExperienceCardProps = {
   item: ExperienceItem;
   index: number;
+  inView?: boolean;
+  revealDelay?: number;
 };
 
-export function ExperienceCard({ item, index }: ExperienceCardProps) {
+export function ExperienceCard({
+  item,
+  index,
+  inView = true,
+  revealDelay = 0,
+}: ExperienceCardProps) {
   const isLeft = index % 2 === 0;
+  const [cardRef, cardInView] = useInView<HTMLDivElement>(0.25);
+  const shouldType = inView && cardInView;
+  const { text: roleText, done: roleDone } = useTypewriter(item.role, {
+    speed: 30,
+    delay: revealDelay,
+    active: shouldType,
+  });
 
   return (
     <motion.div
+      ref={cardRef}
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -21,28 +37,35 @@ export function ExperienceCard({ item, index }: ExperienceCardProps) {
     >
       <span
         className={cn(
-          "absolute left-1/2 top-1/2 hidden h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-[rgb(var(--color-accent)/0.95)] bg-black shadow-[0_0_0_4px_rgba(126,173,227,0.18),0_0_24px_rgba(126,173,227,0.35)] lg:block",
-          item.active &&
-            "border-[rgb(var(--color-accent))] shadow-[0_0_0_4px_rgba(126,173,227,0.22),0_0_30px_rgba(126,173,227,0.5)]",
+          "absolute left-1/2 top-1/2 hidden h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-[rgb(var(--color-accent)/0.95)] bg-black lg:block",
+          item.active && "border-[rgb(var(--color-accent))]",
         )}
+        style={{
+          boxShadow: item.active
+            ? "0 0 0 4px rgb(var(--color-accent) / 0.22), 0 0 30px rgb(var(--color-accent) / 0.5)"
+            : "0 0 0 4px rgb(var(--color-accent) / 0.18), 0 0 24px rgb(var(--color-accent) / 0.35)",
+        }}
       />
 
       <div
         className={cn(
-          "glass-card glass-card-black h-full p-7 text-left hover:-translate-y-1.5",
+          "h-full p-0 text-left transition duration-200 hover:-translate-y-1",
           isLeft ? "lg:col-start-1" : "lg:col-start-3",
         )}
       >
-        <div className="glass-card-overlay" />
-        <div className="glass-card-content">
-        <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[rgb(var(--color-accent))]">
+        <p className="orange-glow mb-2 font-display text-base uppercase tracking-[0.1em]">
           {item.date}
         </p>
-        <h3 className="mb-1 text-xl font-bold theme-text">{item.role}</h3>
-        <p className="mb-5 text-sm theme-muted">
+        <h3 className="mb-1 min-h-[1.4em] font-mono text-base font-bold theme-text">
+          {roleText}
+          {shouldType && !roleDone ? (
+            <span className="terminal-cursor text-[0.8em]">▌</span>
+          ) : null}
+        </h3>
+        <p className="mb-5 font-mono text-xs theme-muted">
           {item.company} · {item.location}
         </p>
-        <ul className="space-y-3 text-sm leading-7 theme-text">
+        <ul className="space-y-3 font-mono text-xs leading-7 theme-text">
           {item.bullets.map((bullet) => (
             <li key={bullet} className="flex items-start gap-3">
               <span className="mt-1 inline-flex h-5 w-5 flex-none items-center justify-center text-[rgb(var(--color-accent))]">
@@ -52,7 +75,6 @@ export function ExperienceCard({ item, index }: ExperienceCardProps) {
             </li>
           ))}
         </ul>
-        </div>
       </div>
 
       <div className="hidden h-full lg:col-start-2 lg:block" />

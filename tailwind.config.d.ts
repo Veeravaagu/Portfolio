@@ -12,8 +12,9 @@ declare const _default: {
                 line: string;
             };
             fontFamily: {
-                sans: [string, string, string, string];
-                mono: [string, string, string, string];
+                sans: [string, string];
+                mono: [string, string];
+                display: [string, string];
             };
             boxShadow: {
                 glow: string;

@@ -108,8 +108,8 @@ function asSkillIcon(icon: IconType): ComponentType<{ className?: string }> {
 
 export const navItems: NavItem[] = [
   { label: "About Me", href: "about" },
-  { label: "Experience", href: "experience" },
   { label: "Portfolio", href: "projects" },
+  { label: "Experience", href: "experience" },
   { label: "Skills", href: "skills" },
 ];
 
@@ -249,44 +249,37 @@ export const skillCategories: SkillCategory[] = [
       {
         name: "Python",
         icon: asSkillIcon(SiPython),
-        accentClass:
-          "group-hover:border-yellow-300/35 group-hover:bg-gradient-to-br group-hover:from-yellow-400/10 group-hover:to-blue-400/10 group-hover:text-yellow-100 group-hover:shadow-[0_0_20px_rgba(234,179,8,0.16)]",
+        accentClass: "",
       },
       {
         name: "JavaScript",
         icon: asSkillIcon(SiJavascript),
-        accentClass:
-          "group-hover:border-amber-300/35 group-hover:bg-amber-300/10 group-hover:text-amber-100 group-hover:shadow-[0_0_20px_rgba(245,158,11,0.16)]",
+        accentClass: "",
       },
       {
         name: "TypeScript",
         icon: asSkillIcon(SiTypescript),
-        accentClass:
-          "group-hover:border-blue-400/40 group-hover:bg-blue-400/10 group-hover:text-blue-100 group-hover:shadow-[0_0_22px_rgba(59,130,246,0.18)]",
+        accentClass: "",
       },
       {
         name: "C",
         icon: asSkillIcon(SiC),
-        accentClass:
-          "group-hover:border-stone-300/35 group-hover:bg-stone-300/10 group-hover:text-stone-100 group-hover:shadow-[0_0_20px_rgba(214,211,209,0.12)]",
+        accentClass: "",
       },
       {
         name: "C++",
         icon: asSkillIcon(SiCplusplus),
-        accentClass:
-          "group-hover:border-slate-300/35 group-hover:bg-slate-300/10 group-hover:text-slate-100 group-hover:shadow-[0_0_20px_rgba(148,163,184,0.12)]",
+        accentClass: "",
       },
       {
         name: "Java",
         icon: TerminalSquare,
-        accentClass:
-          "group-hover:border-orange-400/35 group-hover:bg-orange-400/10 group-hover:text-orange-100 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.16)]",
+        accentClass: "",
       },
       {
         name: "SQL",
         icon: asSkillIcon(SiPostgresql),
-        accentClass:
-          "group-hover:border-zinc-300/35 group-hover:bg-zinc-300/10 group-hover:text-zinc-100 group-hover:shadow-[0_0_18px_rgba(244,244,245,0.12)]",
+        accentClass: "",
       },
     ],
   },
@@ -296,44 +289,37 @@ export const skillCategories: SkillCategory[] = [
       {
         name: "FastAPI",
         icon: asSkillIcon(SiFastapi),
-        accentClass:
-          "group-hover:border-teal-300/35 group-hover:bg-teal-300/10 group-hover:text-teal-100 group-hover:shadow-[0_0_20px_rgba(94,234,212,0.16)]",
+        accentClass: "",
       },
       {
         name: "Django",
         icon: asSkillIcon(SiDjango),
-        accentClass:
-          "group-hover:border-green-400/35 group-hover:bg-green-400/10 group-hover:text-green-100 group-hover:shadow-[0_0_20px_rgba(74,222,128,0.16)]",
+        accentClass: "",
       },
       {
         name: "Node.js",
         icon: asSkillIcon(SiNodedotjs),
-        accentClass:
-          "group-hover:border-lime-300/35 group-hover:bg-lime-300/10 group-hover:text-lime-100 group-hover:shadow-[0_0_20px_rgba(163,230,53,0.16)]",
+        accentClass: "",
       },
       {
         name: "Express",
         icon: asSkillIcon(SiExpress),
-        accentClass:
-          "group-hover:border-zinc-300/35 group-hover:bg-zinc-300/10 group-hover:text-zinc-100 group-hover:shadow-[0_0_18px_rgba(244,244,245,0.1)]",
+        accentClass: "",
       },
       {
         name: "WebSocket",
         icon: asSkillIcon(SiSocketdotio),
-        accentClass:
-          "group-hover:border-sky-300/35 group-hover:bg-sky-300/10 group-hover:text-sky-100 group-hover:shadow-[0_0_20px_rgba(125,211,252,0.15)]",
+        accentClass: "",
       },
       {
         name: "OAuth2",
         icon: asSkillIcon(SiAuth0),
-        accentClass:
-          "group-hover:border-rose-300/35 group-hover:bg-rose-300/10 group-hover:text-rose-100 group-hover:shadow-[0_0_20px_rgba(253,164,175,0.16)]",
+        accentClass: "",
       },
       {
         name: "JWT",
         icon: asSkillIcon(SiJsonwebtokens),
-        accentClass:
-          "group-hover:border-pink-300/35 group-hover:bg-pink-300/10 group-hover:text-pink-100 group-hover:shadow-[0_0_20px_rgba(249,168,212,0.16)]",
+        accentClass: "",
       },
     ],
   },
@@ -343,26 +329,22 @@ export const skillCategories: SkillCategory[] = [
       {
         name: "React",
         icon: asSkillIcon(SiReact),
-        accentClass:
-          "group-hover:border-cyan-300/40 group-hover:bg-cyan-300/10 group-hover:text-cyan-100 group-hover:shadow-[0_0_22px_rgba(103,232,249,0.18)]",
+        accentClass: "",
       },
       {
         name: "TypeScript",
         icon: asSkillIcon(SiTypescript),
-        accentClass:
-          "group-hover:border-blue-400/40 group-hover:bg-blue-400/10 group-hover:text-blue-100 group-hover:shadow-[0_0_22px_rgba(59,130,246,0.18)]",
+        accentClass: "",
       },
       {
         name: "Tailwind CSS",
         icon: asSkillIcon(SiTailwindcss),
-        accentClass:
-          "group-hover:border-cyan-400/40 group-hover:bg-cyan-400/10 group-hover:text-cyan-100 group-hover:shadow-[0_0_22px_rgba(34,211,238,0.18)]",
+        accentClass: "",
       },
       {
         name: "Chart.js",
         icon: asSkillIcon(SiChartdotjs),
-        accentClass:
-          "group-hover:border-fuchsia-300/35 group-hover:bg-fuchsia-300/10 group-hover:text-fuchsia-100 group-hover:shadow-[0_0_20px_rgba(240,171,252,0.16)]",
+        accentClass: "",
       },
     ],
   },
@@ -372,32 +354,27 @@ export const skillCategories: SkillCategory[] = [
       {
         name: "PostgreSQL",
         icon: asSkillIcon(SiPostgresql),
-        accentClass:
-          "group-hover:border-sky-400/35 group-hover:bg-slate-400/10 group-hover:text-sky-100 group-hover:shadow-[0_0_20px_rgba(96,165,250,0.16)]",
+        accentClass: "",
       },
       {
         name: "MongoDB",
         icon: asSkillIcon(SiMongodb),
-        accentClass:
-          "group-hover:border-green-400/35 group-hover:bg-green-400/10 group-hover:text-green-100 group-hover:shadow-[0_0_20px_rgba(74,222,128,0.16)]",
+        accentClass: "",
       },
       {
         name: "SQLite",
         icon: asSkillIcon(SiSqlite),
-        accentClass:
-          "group-hover:border-zinc-300/35 group-hover:bg-zinc-300/10 group-hover:text-zinc-100 group-hover:shadow-[0_0_20px_rgba(244,244,245,0.12)]",
+        accentClass: "",
       },
       {
         name: "Redis",
         icon: asSkillIcon(SiRedis),
-        accentClass:
-          "group-hover:border-rose-400/35 group-hover:bg-rose-400/10 group-hover:text-rose-100 group-hover:shadow-[0_0_20px_rgba(251,113,133,0.16)]",
+        accentClass: "",
       },
       {
         name: "Supabase",
         icon: asSkillIcon(SiSupabase),
-        accentClass:
-          "group-hover:border-zinc-300/35 group-hover:bg-zinc-300/10 group-hover:text-zinc-100 group-hover:shadow-[0_0_20px_rgba(244,244,245,0.12)]",
+        accentClass: "",
       },
     ],
   },
@@ -407,32 +384,27 @@ export const skillCategories: SkillCategory[] = [
       {
         name: "OpenAI API",
         icon: asSkillIcon(SiOpenai),
-        accentClass:
-          "group-hover:border-emerald-300/35 group-hover:bg-emerald-300/10 group-hover:text-emerald-100 group-hover:shadow-[0_0_20px_rgba(52,211,153,0.16)]",
+        accentClass: "",
       },
       {
         name: "LangChain",
         icon: asSkillIcon(SiLangchain),
-        accentClass:
-          "group-hover:border-lime-300/35 group-hover:bg-lime-300/10 group-hover:text-lime-100 group-hover:shadow-[0_0_20px_rgba(163,230,53,0.16)]",
+        accentClass: "",
       },
       {
         name: "Pydantic",
         icon: asSkillIcon(SiPydantic),
-        accentClass:
-          "group-hover:border-violet-300/35 group-hover:bg-violet-300/10 group-hover:text-violet-100 group-hover:shadow-[0_0_20px_rgba(196,181,253,0.15)]",
+        accentClass: "",
       },
       {
         name: "scikit-learn",
         icon: asSkillIcon(SiScikitlearn),
-        accentClass:
-          "group-hover:border-red-300/35 group-hover:bg-red-300/10 group-hover:text-red-100 group-hover:shadow-[0_0_20px_rgba(252,165,165,0.15)]",
+        accentClass: "",
       },
       {
         name: "XGBoost",
         icon: Bot,
-        accentClass:
-          "group-hover:border-orange-300/35 group-hover:bg-orange-300/10 group-hover:text-orange-100 group-hover:shadow-[0_0_20px_rgba(253,186,116,0.16)]",
+        accentClass: "",
       },
     ],
   },
@@ -442,38 +414,32 @@ export const skillCategories: SkillCategory[] = [
       {
         name: "Docker",
         icon: asSkillIcon(SiDocker),
-        accentClass:
-          "group-hover:border-blue-400/35 group-hover:bg-blue-400/10 group-hover:text-blue-100 group-hover:shadow-[0_0_20px_rgba(96,165,250,0.16)]",
+        accentClass: "",
       },
       {
         name: "GitHub Actions",
         icon: asSkillIcon(SiGithubactions),
-        accentClass:
-          "group-hover:border-indigo-300/35 group-hover:bg-indigo-300/10 group-hover:text-indigo-100 group-hover:shadow-[0_0_20px_rgba(165,180,252,0.16)]",
+        accentClass: "",
       },
       {
         name: "AWS",
         icon: CloudCog,
-        accentClass:
-          "group-hover:border-orange-400/35 group-hover:bg-orange-400/10 group-hover:text-orange-100 group-hover:shadow-[0_0_20px_rgba(251,146,60,0.16)]",
+        accentClass: "",
       },
       {
         name: "Render",
         icon: asSkillIcon(SiRender),
-        accentClass:
-          "group-hover:border-sky-300/35 group-hover:bg-sky-300/10 group-hover:text-sky-100 group-hover:shadow-[0_0_20px_rgba(125,211,252,0.15)]",
+        accentClass: "",
       },
       {
         name: "Vercel",
         icon: asSkillIcon(SiVercel),
-        accentClass:
-          "group-hover:border-zinc-300/35 group-hover:bg-zinc-300/10 group-hover:text-zinc-100 group-hover:shadow-[0_0_20px_rgba(244,244,245,0.12)]",
+        accentClass: "",
       },
       {
         name: "Linux",
         icon: asSkillIcon(SiLinux),
-        accentClass:
-          "group-hover:border-stone-300/35 group-hover:bg-stone-300/10 group-hover:text-stone-100 group-hover:shadow-[0_0_20px_rgba(214,211,209,0.12)]",
+        accentClass: "",
       },
     ],
   },
@@ -483,26 +449,22 @@ export const skillCategories: SkillCategory[] = [
       {
         name: "pytest",
         icon: asSkillIcon(SiPytest),
-        accentClass:
-          "group-hover:border-emerald-300/35 group-hover:bg-emerald-300/10 group-hover:text-emerald-100 group-hover:shadow-[0_0_20px_rgba(110,231,183,0.16)]",
+        accentClass: "",
       },
       {
         name: "Jest",
         icon: asSkillIcon(SiJest),
-        accentClass:
-          "group-hover:border-amber-300/35 group-hover:bg-amber-300/10 group-hover:text-amber-100 group-hover:shadow-[0_0_20px_rgba(245,158,11,0.16)]",
+        accentClass: "",
       },
       {
         name: "JUnit",
         icon: ShieldCheck,
-        accentClass:
-          "group-hover:border-orange-300/35 group-hover:bg-orange-300/10 group-hover:text-orange-100 group-hover:shadow-[0_0_20px_rgba(253,186,116,0.16)]",
+        accentClass: "",
       },
       {
         name: "Playwright",
         icon: ShieldCheck,
-        accentClass:
-          "group-hover:border-green-300/35 group-hover:bg-green-300/10 group-hover:text-green-100 group-hover:shadow-[0_0_20px_rgba(134,239,172,0.16)]",
+        accentClass: "",
       },
     ],
   },

@@ -14,8 +14,9 @@ export default {
         line: "rgb(var(--color-line) / <alpha-value>)",
       },
       fontFamily: {
-        sans: ['"Space Grotesk"', "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ['"Space Mono"', "ui-monospace", "SFMono-Regular", "monospace"],
+        sans: ['"Space Mono"', "monospace"],
+        mono: ['"Space Mono"', "monospace"],
+        display: ['"VT323"', "monospace"],
       },
       boxShadow: {
         glow: "0 20px 55px rgba(0,0,0,0.55)",

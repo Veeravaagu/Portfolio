@@ -10,18 +10,18 @@ type ProjectCardProps = {
 export function ProjectCard({ project, index }: ProjectCardProps) {
   const cardContent = (
     <>
-      <div className="theme-dim mb-4 font-mono text-xs uppercase tracking-[0.14em]">
-        {String(index + 1).padStart(2, "0")} — {project.category}
+      <div className="orange-glow mb-3 font-display text-[15px] uppercase tracking-[0.1em]">
+        {String(index + 1).padStart(2, "0")} // {project.category}
       </div>
-      <h3 className="mb-3 text-xl font-bold leading-tight theme-text">
+      <h3 className="mb-3 font-mono text-sm font-bold leading-tight tracking-[0.02em] theme-text">
         {project.title}
       </h3>
-      <p className="mb-5 text-sm leading-7 theme-muted">{project.description}</p>
+      <p className="mb-5 font-mono text-[11px] leading-7 theme-muted">{project.description}</p>
       <div className="mb-6 flex flex-wrap gap-2">
         {project.techStack.map((tag) => (
           <span
             key={tag}
-            className="rounded-full border border-[rgb(var(--color-line)/0.12)] bg-[rgb(var(--color-line)/0.04)] px-3 py-1 text-xs font-medium text-[rgb(var(--color-accent))]"
+            className="px-2 py-0.5 font-display text-[13px] tracking-[0.05em] text-[rgb(var(--color-line)/0.32)] transition group-hover:text-[rgb(var(--color-accent))]"
           >
             {tag}
           </span>
@@ -55,11 +55,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`${project.primaryLinkLabel}: ${project.title}`}
-        className="glass-card glass-card-black glass-card-project relative flex h-full flex-col p-6 hover:-translate-y-2"
+        className="relative flex h-full flex-col bg-[#040404] p-5 transition duration-200 hover:-translate-y-1 hover:bg-[#080808]"
       >
-        <div className="glass-card-overlay" />
-        <div className="pointer-events-none absolute -right-10 top-0 h-32 w-32 rotate-12 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),transparent)] opacity-60 blur-2xl" />
-        <div className="glass-card-content">{cardContent}</div>
+        {cardContent}
       </a>
       {project.secondaryLinkUrl ? (
         <a
