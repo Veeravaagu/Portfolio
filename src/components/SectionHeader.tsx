@@ -35,7 +35,8 @@ export function SectionHeader({
       <h2
         className={cn(
           "white-glow glitch-pulse theme-text font-mono text-3xl font-bold uppercase tracking-[0.14em] sm:text-4xl",
-          framed && "inline-block px-0 py-0 text-2xl sm:text-3xl",
+          framed &&
+            "inline-block whitespace-nowrap px-0 py-0 text-xl tracking-[0.08em] sm:text-3xl sm:tracking-[0.14em]",
         )}
       >
         {text || heading}
